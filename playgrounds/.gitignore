@@ -1,0 +1,14 @@
+# Node
+node_modules/
+**/node_modules/
+
+# SvelteKit
+.svelte-kit/
+**/.svelte-kit/
+/build/
+**/build/
+.output/
+
+# OS
+.DS_Store
+Thumbs.db
