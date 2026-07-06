@@ -134,21 +134,6 @@
       </div>
     </div>
 
-    <!-- Funnel -->
-    <div class="mt-4">
-      <div class="text-xs text-gray-400 mb-2">Search Space Reduction</div>
-      <div class="relative h-8 w-full overflow-hidden rounded-full bg-gray-100">
-        <div class="absolute left-0 top-0 h-full bg-blue-500 transition-all duration-500"
-          style="width: {Math.min(100, (metrics.ivfCandidates / metrics.totalVectors) * 100)}%"></div>
-        <div class="absolute top-0 h-full bg-green-500 transition-all duration-500"
-          style="left: {Math.min(100, (metrics.ivfCandidates / metrics.totalVectors) * 100)}%; width: {Math.min(100 - (metrics.ivfCandidates / metrics.totalVectors) * 100, ((metrics.pqComparisons) / metrics.totalVectors) * 100)}%"></div>
-        <div class="absolute top-0 h-full bg-purple-500 transition-all duration-500"
-          style="left: {Math.min(100, ((metrics.ivfCandidates + metrics.pqComparisons) / metrics.totalVectors) * 100)}%; width: {Math.min(100 - ((metrics.ivfCandidates + metrics.pqComparisons) / metrics.totalVectors) * 100, (metrics.hnswNodesVisited / metrics.totalVectors) * 100)}%"></div>
-      </div>
-      <div class="flex justify-between text-[10px] text-gray-400 mt-1">
-        <span>100%</span><span>IVF</span><span>PQ</span><span>HNSW</span><span>Final</span>
-      </div>
-    </div>
   {:else if buildPhase.stage === 'complete'}
     <div class="text-center text-sm text-gray-400 py-8">
       Run a search to see metrics
