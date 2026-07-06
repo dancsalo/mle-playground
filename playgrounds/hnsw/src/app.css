@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+:root {
+  --hnsw-primary: #7E3AF2;
+  --hnsw-secondary: #06B6D4;
+  --hnsw-accent: #F59E0B;
+  --hnsw-cluster-a: #3B82F6;
+  --hnsw-cluster-b: #10B981;
+  --hnsw-cluster-c: #F59E0B;
+  --hnsw-cluster-d: #EF4444;
+  --hnsw-query: #FF6B6B;
+  --hnsw-path: #7E3AF2;
+  --hnsw-layer0: #3B82F6;
+  --hnsw-layer1: #8B5CF6;
+  --hnsw-layer2: #EC4899;
+  --hnsw-layer3: #F59E0B;
+  --hnsw-graph-edge: #D1D5DB;
+  --hnsw-graph-edge-active: #7E3AF2;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f8f9fb;
+  color: #1f2937;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.hnsw-panel {
+  @apply rounded-xl border border-gray-200 bg-white p-4 shadow-sm;
+}
+
+.hnsw-panel-header {
+  @apply mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500;
+}

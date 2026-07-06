@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+:root {
+  --gcn-primary: #6366F1;
+  --gcn-layer1: #8B5CF6;
+  --gcn-layer2: #EC4899;
+  --gcn-message: #F59E0B;
+  --gcn-aggregate: #10B981;
+  --gcn-class0: #3B82F6;
+  --gcn-class1: #10B981;
+  --gcn-class2: #F59E0B;
+  --gcn-labeled: #1F2937;
+  --gcn-unlabeled: #9CA3AF;
+  --gcn-correct: #10B981;
+  --gcn-incorrect: #EF4444;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f8fafc;
+  color: #1f2937;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Graph node transitions */
+.graph-node {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.graph-node:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Message animation */
+@keyframes message-flow {
+  0% { stroke-dashoffset: 20; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+.message-path {
+  stroke-dasharray: 4 2;
+  animation: message-flow 1.5s ease-in-out infinite;
+}
+
+/* Pulse animation for active nodes */
+@keyframes node-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.node-active {
+  animation: node-pulse 1s ease-in-out infinite;
+}
+
+/* Probability bar transitions */
+.prob-bar {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s ease;
+}
+
+/* Loss curve line */
+.loss-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Step button */
+.step-btn {
+  transition: all 0.2s ease;
+}
+.step-btn:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Feature heatmap cell */
+.feature-cell {
+  transition: background-color 0.4s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* SVG tooltip */
+.graph-tooltip {
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}

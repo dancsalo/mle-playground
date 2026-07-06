@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+:root {
+  --rl-primary: #6366F1;
+  --rl-ppo: #F59E0B;
+  --rl-dpo: #10B981;
+  --rl-grpo: #8B5CF6;
+  --rl-reward-high: #10B981;
+  --rl-reward-low: #EF4444;
+  --rl-kl-safe: #10B981;
+  --rl-kl-warn: #F59E0B;
+  --rl-kl-danger: #EF4444;
+  --rl-chosen: #10B981;
+  --rl-rejected: #EF4444;
+  --rl-positive: #10B981;
+  --rl-negative: #EF4444;
+  --rl-neutral: #6B7280;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f8fafc;
+  color: #1f2937;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Smooth transitions for probability bars */
+.prob-bar {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Algorithm column headers */
+.algo-ppo { border-color: var(--rl-ppo); }
+.algo-dpo { border-color: var(--rl-dpo); }
+.algo-grpo { border-color: var(--rl-grpo); }
+
+/* Rollout token highlighting */
+.token-highlight {
+  transition: background-color 0.3s ease;
+}
+
+.token-highlight:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* KL gauge animation */
+@keyframes pulse-warn {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.kl-warning {
+  animation: pulse-warn 1.5s ease-in-out infinite;
+}
+
+/* Step button glow */
+.step-btn {
+  transition: all 0.2s ease;
+}
+
+.step-btn:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}

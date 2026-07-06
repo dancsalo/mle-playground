@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+:root {
+  --lsh-primary: #7E3AF2;
+  --lsh-shingle-a: #3B82F6;
+  --lsh-shingle-b: #10B981;
+  --lsh-shingle-c: #F59E0B;
+  --lsh-shingle-d: #EF4444;
+  --lsh-bucket-bg: #F3F4F6;
+  --lsh-candidate: #7E3AF2;
+  --lsh-false-pos: #EF4444;
+  --lsh-false-neg: #6B7280;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
