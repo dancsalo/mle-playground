@@ -84,7 +84,7 @@
           aria-label="Toggle step mode"
         >
           <span class="absolute top-0.5 left-0.5 w-2.5 h-2.5 rounded-full bg-white shadow transition-transform
-            {stepMode ? 'translate-x-3.5' : ''}" />
+            {stepMode ? 'translate-x-3.5' : ''}"></span>
         </button>
       </label>
       <!-- Skip -->

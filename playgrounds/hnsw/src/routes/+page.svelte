@@ -207,9 +207,13 @@
 
   // Track parameter changes → mark needs rebuild
   // Use a non-reactive variable to avoid effect loops
-  let prevParams = { numPoints, numPartitions, numLayers, M };
+  let prevParams: { numPoints: number; numPartitions: number; numLayers: number; M: number } | null = null;
   $effect(() => {
     const current = { numPoints, numPartitions, numLayers, M };
+    if (prevParams === null) {
+      prevParams = current;
+      return;
+    }
     const changed = (
       current.numPoints !== prevParams.numPoints ||
       current.numPartitions !== prevParams.numPartitions ||
@@ -436,16 +440,16 @@
         queryState = { ...queryState!, stage: 'hnsw', hnswPath: searchPath, progress: 0.75 };
         
       } else if (stages[i] === 'exact') {
-        const candidatePoints = queryState!.ivfCandidates.map(pid => {
+        const candidatePoints: Array<{ id: number; dist: number }> = queryState!.ivfCandidates.map((pid: number) => {
           const pt = points[pid];
           return { id: pid, dist: pt ? Math.sqrt((queryPoint.x - pt.x) ** 2 + (queryPoint.y - pt.y) ** 2) : Infinity };
         });
         candidatePoints.sort((a, b) => a.dist - b.dist);
-        queryState = { ...queryState!, stage: 'exact', exactResults: candidatePoints.slice(0, 10).map(p => p.id), progress: 0.9 };
+        queryState = { ...queryState!, stage: 'exact', exactResults: candidatePoints.slice(0, 10).map((p) => p.id), progress: 0.9 };
         
       } else if (stages[i] === 'complete') {
-        const totalVectors = points.length;
-        const ivfCandidates = queryState!.ivfCandidates.length;
+        const totalVectors: number = points.length;
+        const ivfCandidates: number = queryState!.ivfCandidates.length;
         queryState = {
           ...queryState!,
           stage: 'complete',
@@ -833,6 +837,7 @@
 <style>
   :global(input[type="range"]) {
     -webkit-appearance: none;
+    appearance: none;
     height: 4px;
     background: #E5E7EB;
     border-radius: 2px;
@@ -840,6 +845,7 @@
   
   :global(input[type="range"])::-webkit-slider-thumb {
     -webkit-appearance: none;
+    appearance: none;
     width: 14px;
     height: 14px;
     background: var(--hnsw-primary);
