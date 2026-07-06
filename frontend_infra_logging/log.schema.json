@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/log.schema.json",
+  "title": "Frontend Log Event",
+  "type": "object",
+  "required": ["eventId", "eventType", "timestamp", "sequence", "sessionId", "pageId", "pageTitle", "payload"],
+  "properties": {
+    "eventId": { "type": "string" },
+    "eventType": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "sequence": { "type": "integer", "minimum": 0 },
+    "sessionId": { "type": "string" },
+    "pageId": { "type": "string" },
+    "pageTitle": { "type": "string" },
+    "route": { "type": "string" },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "clientX": { "type": "number" },
+        "clientY": { "type": "number" },
+        "button": { "type": "integer" },
+        "scrollX": { "type": "number" },
+        "scrollY": { "type": "number" },
+        "queryId": { "type": "string" },
+        "query": { "type": "string" },
+        "answerId": { "type": "string" },
+        "answer": { "type": "string" },
+        "confidence": { "type": "number" },
+        "confidenceBand": { "type": "string", "enum": ["high", "medium", "low", "none"] },
+        "citationIds": { "type": "array", "items": { "type": "string" } },
+        "figureIds": { "type": "array", "items": { "type": "string" } },
+        "shouldEscalate": { "type": "boolean" },
+        "reason": { "type": "string" },
+        "target": {
+          "type": "object",
+          "properties": {
+            "tagName": { "type": "string" },
+            "id": { "type": "string" },
+            "logId": { "type": "string" },
+            "role": { "type": "string" },
+            "label": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "topMatches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
